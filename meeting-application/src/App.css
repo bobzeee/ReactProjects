@@ -1,0 +1,58 @@
+/* App component Styles
+--------------------------- */
+
+/* Header component Styles
+--------------------------- */
+
+/* .header__container {
+  background-color: #ebeff5;
+  height: 200px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  color: #053858;
+  padding: 35px 60px 48px 0px;
+}
+
+.header__content__greeting {
+  display: flex;
+  align-self: flex-end;
+  margin-left: 249px;
+}
+
+.header__container__user {
+  display: flex;
+}
+
+.header__container__user__image {
+  width: 55px;
+  object-fit: contain;
+  align-self: start;
+  margin-top: -15px;
+  border-radius: 50%;
+} */
+
+/* .MuiDrawer-root {
+  color: #053858;
+  background-color: #ebeff5;
+}
+
+.time {
+  background-color: rgba(237, 184, 255, 0.333);
+  width: 50px;
+} */
+
+.MuiInputBase-input {
+  color: #053858 !important;
+  font-weight: 600 !important;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 0 !important;
+}
+
+.MuiFormLabel-root {
+  color: #053858 !important;
+  padding-top: 2px !important;
+  padding-left: 10px !important;
+}
