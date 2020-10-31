@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import MeetingsTable from "./MeetingsTable";
 import MeetingModal from "./MeetingModal";
+import Data from "../Data";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +25,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Dashboard = () => {
+  const [rows, setRows] = useState(Data);
+
+  const deleteMeeting = (id) => {
+    const meetingsList = [...rows];
+    meetingsList.splice(id, 1);
+    setRows(meetingsList);
+  };
+
+  const addMeeting = () => {};
+
   const classes = useStyles();
   return (
     <Paper elevation={0} className={classes.root}>
@@ -31,7 +42,7 @@ const Dashboard = () => {
         Here are your Tasks for Today
       </Typography>
       <Paper elevation={0} className={classes.table}>
-        <MeetingsTable />
+        <MeetingsTable meetingsList={rows} onDelete={deleteMeeting} />
       </Paper>
       <div style={{ alignSelf: "flex-end" }}>
         <MeetingModal />

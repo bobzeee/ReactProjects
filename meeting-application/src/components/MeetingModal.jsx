@@ -9,63 +9,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import MeetingsForm from "./MeetingsForm";
 
-const styles = (theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2),
-  },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    marginTop: "-10px",
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
-});
-
-const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
-  return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          className={classes.closeButton}
-          onClick={onClose}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </MuiDialogTitle>
-  );
-});
-
-const DialogContent = withStyles((theme) => ({
-  root: {
-    padding: 0,
-  },
-}))(MuiDialogContent);
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    marginTop: 50,
-    marginBottom: 50,
-    marginRight: 70,
-    borderRadius: 50,
-    padding: "10px 30px",
-    textTransform: "none",
-  },
-  paper: {
-    padding: "10px 50px",
-    color: theme.palette.common.white,
-    backgroundColor: theme.palette.secondary.main,
-  },
-  dialog: {
-    margin: "100px 0 0 160px",
-  },
-}));
-
 const MeetingModal = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -97,7 +40,9 @@ const MeetingModal = () => {
         open={open}
       >
         <DialogTitle className={classes.paper} onClose={handleClose}>
-          <Typography variant="h5">Create New Meeting </Typography>
+          <Typography className={classes.dialogtitle}>
+            Create New Meeting{" "}
+          </Typography>
         </DialogTitle>
         <DialogContent>
           <MeetingsForm handleClose={handleClose} />
@@ -108,3 +53,63 @@ const MeetingModal = () => {
 };
 
 export default MeetingModal;
+
+const styles = (theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: "absolute",
+    right: theme.spacing(1),
+    marginTop: "-10px",
+    top: theme.spacing(1),
+    color: theme.palette.common.white,
+  },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const { children, classes, onClose, ...other } = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h5">{children}</Typography>
+      {onClose ? (
+        <IconButton
+          aria-label="close"
+          className={classes.closeButton}
+          onClick={onClose}
+        >
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    marginTop: 50,
+    marginBottom: 50,
+    marginRight: 70,
+    borderRadius: 50,
+    padding: "10px 30px",
+    textTransform: "none",
+  },
+  paper: {
+    padding: "10px 50px",
+    color: theme.palette.common.white,
+    backgroundColor: theme.palette.secondary.main,
+  },
+  dialog: {
+    margin: "80px 0 0 160px",
+  },
+  dialogtitle: {
+    fontWeight: 600,
+  },
+}));
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: 0,
+  },
+}))(MuiDialogContent);

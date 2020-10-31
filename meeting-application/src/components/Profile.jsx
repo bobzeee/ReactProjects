@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import TodoTable from "./TodoTable";
+//import TodoTable from "./TodoTable";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,7 +42,7 @@ const Profile = () => {
         Here are your Tasks for Today
       </Typography>
       <Paper elevation={0} className={classes.table}>
-        <TodoTable />
+        {/* <TodoTable /> */}
       </Paper>
       <Button
         variant="contained"

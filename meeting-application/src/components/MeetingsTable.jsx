@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Data from "../Data";
+import React from "react";
 import Row from "./MeetingsTableRow";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -17,15 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-function MeetingsTable() {
-  const [rows, setRows] = useState(Data);
-
-  const handleDelete = (id) => {
-    const meetingsList = [...rows];
-    // meetingsList.filter((meeting) => meeting.id !== id);
-    meetingsList.splice(id, 1);
-    setRows(meetingsList);
-  };
+function MeetingsTable({meetingsList, onDelete}) {
 
   const classes = useStyles();
   return (
@@ -42,8 +33,8 @@ function MeetingsTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
-            <Row key={row.id} index={index} row={row} onDelete={handleDelete} />
+          {meetingsList.map((row, index) => (
+            <Row key={row.id} index={index} row={row} onDelete={onDelete} />
           ))}
         </TableBody>
       </Table>

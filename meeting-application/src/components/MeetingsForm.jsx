@@ -83,6 +83,7 @@ const MeetingsForm = ({ handleClose }) => {
   };
 
   const handleDateChange = (date) => {
+    console.log("Date", date);
     setSelectedDate(date);
   };
 
@@ -120,7 +121,7 @@ const MeetingsForm = ({ handleClose }) => {
                     <KeyboardDatePicker
                       disableToolbar
                       variant="inline"
-                      format="MM/dd/yyyy"
+                      format="dd/MM/yyyy"
                       style={{ width: "70%" }}
                       margin="normal"
                       id="date-picker-inline"
@@ -173,13 +174,13 @@ const MeetingsForm = ({ handleClose }) => {
                     />
                   </Grid>
                 </Grid>
-                <Grid container xs={12} md={10}>
+                <Grid container item xs={12} md={10}>
                   <TextField
                     className={classes.meeting}
                     label="Meeting Title"
                   />
                 </Grid>
-                <Grid container xs={12} md={10}>
+                <Grid container item xs={12} md={10}>
                   <TextField
                     className={classes.meeting}
                     label="Meeting Description"
